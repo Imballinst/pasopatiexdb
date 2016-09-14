@@ -1,5 +1,5 @@
 function getAPI() {
-  var pdbAPI = "http://pasopatiexdb.herokuapp.com/api";
+  var pdbAPI = "https://pasopatiexdb.herokuapp.com/api";
   $.getJSON( pdbAPI, {
     format: "json"
   })
