@@ -1,0 +1,11 @@
+html, body {
+	
+}
+
+.slide {
+	display: none;
+
+	&.slide-active {
+		display: inline-block;
+	}
+}
