@@ -10,10 +10,10 @@ $('#submitButton').click(function getAPI() {
     passcode: passcode
   }, "json")
   .done(function renderData(data) {
-    $('#form').hide();
-    $('#table').show();
+    $('#formPdb').hide();
+    $('#tablePdb').show();
 
-    $.each(data["Input_Data_Lembaga_Panahan"], function(key, singledata) {
+    $.each(data["data"]["Input_Data_Lembaga_Panahan"], function(key, singledata) {
       // row
       var tr = $(document.createElement('tr'));
 
