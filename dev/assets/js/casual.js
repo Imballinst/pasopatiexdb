@@ -1,71 +1,77 @@
-function getAPI() {
+$(document).ready(function() {
+  $('#table').hide();
+});
+
+$('#submitButton').click(function getAPI() {
   var pdbAPI = "https://pasopatiexdb.herokuapp.com/api";
-  $.getJSON( pdbAPI, {
-    format: "json"
-  })
-    .done(function( data ) {
-      console.log(data);
-        $.each(data["Input_Data_Lembaga_Panahan"], function(key, singledata) {
-          // row
-          var tr = $(document.createElement('tr'));
+  var passcode = $('#passcode').val();
 
-          // nama
-          var tdNama = $(document.createElement('td'));
-          tdNama.html(singledata["Nama_Lembaga_Individu"]);
-          tdNama.appendTo(tr);
+  $.post(pdbAPI, {
+    passcode: passcode
+  }, "json")
+  .done(function renderData(data) {
+    $('#form').hide();
+    $('#table').show();
 
-          // alamat
-          var tdAlamat = $(document.createElement('td'));
-          tdAlamat.html(singledata["Alamat"]);
-          tdAlamat.appendTo(tr);
+    $.each(data["Input_Data_Lembaga_Panahan"], function(key, singledata) {
+      // row
+      var tr = $(document.createElement('tr'));
 
-          // cp
-          var tdKontak = $(document.createElement('td'));
-          tdKontak.html(singledata["Nama_Lembaga_Individu"]);
-          tdKontak.appendTo(tr);
+      // nama
+      var tdNama = $(document.createElement('td'));
+      tdNama.html(singledata["Nama_Lembaga_Individu"]);
+      tdNama.appendTo(tr);
 
-          // nomor telp
-          var tdTelp = $(document.createElement('td'));
-          tdTelp.html(singledata["Nomor_Telepon_HP"]);
-          tdTelp.appendTo(tr);
+      // alamat
+      var tdAlamat = $(document.createElement('td'));
+      tdAlamat.html(singledata["Alamat"]);
+      tdAlamat.appendTo(tr);
 
-          // hp
-          var tdHP = $(document.createElement('td'));
-          tdHP.html(singledata["Nomor_HP"]);
-          tdHP.appendTo(tr);
+      // cp
+      var tdKontak = $(document.createElement('td'));
+      tdKontak.html(singledata["Nama_Lembaga_Individu"]);
+      tdKontak.appendTo(tr);
 
-          // email
-          var tdEmail = $(document.createElement('td'));
-          tdEmail.html(singledata["Email"]);
-          tdEmail.appendTo(tr);
+      // nomor telp
+      var tdTelp = $(document.createElement('td'));
+      tdTelp.html(singledata["Nomor_Telepon_HP"]);
+      tdTelp.appendTo(tr);
 
-          // foto
-          var tdFoto = $(document.createElement('td'));
-          tdFoto.html(singledata["Foto_Lokasi"]);
-          tdFoto.appendTo(tr);
+      // hp
+      var tdHP = $(document.createElement('td'));
+      tdHP.html(singledata["Nomor_HP"]);
+      tdHP.appendTo(tr);
 
-          // info
-          var tdInfo = $(document.createElement('td'));
-          tdInfo.html(singledata["Informasi_Lain_Selengkapnya"]);
-          tdInfo.appendTo(tr);
+      // email
+      var tdEmail = $(document.createElement('td'));
+      tdEmail.html(singledata["Email"]);
+      tdEmail.appendTo(tr);
 
-          // kategori
-          var tdKategori = $(document.createElement('td'));
-          var tdKategoriKonten = singledata["Kategori"];
-          tdKategoriKonten = tdKategoriKonten.replace("[", "");
-          tdKategoriKonten = tdKategoriKonten.replace("]", "");
-          tdKategori.html(tdKategoriKonten);
-          tdKategori.appendTo(tr);
+      // foto
+      var tdFoto = $(document.createElement('td'));
+      tdFoto.html(singledata["Foto_Lokasi"]);
+      tdFoto.appendTo(tr);
 
-          // sosmed
-          var tdSosmed = $(document.createElement('td'));
-          tdSosmed.html(singledata["Akun_Social_Media_FB_Line_Twitter_dll"]);
-          tdSosmed.appendTo(tr);
+      // info
+      var tdInfo = $(document.createElement('td'));
+      tdInfo.html(singledata["Informasi_Lain_Selengkapnya"]);
+      tdInfo.appendTo(tr);
 
-          // Final append
-          tr.appendTo(document.getElementById("pdb-table-body"));
-        });
+      // kategori
+      var tdKategori = $(document.createElement('td'));
+      var tdKategoriKonten = singledata["Kategori"];
+      tdKategoriKonten = tdKategoriKonten.replace("[", "");
+      tdKategoriKonten = tdKategoriKonten.replace("]", "");
+      tdKategori.html(tdKategoriKonten);
+      tdKategori.appendTo(tr);
+
+      // sosmed
+      var tdSosmed = $(document.createElement('td'));
+      tdSosmed.html(singledata["Akun_Social_Media_FB_Line_Twitter_dll"]);
+      tdSosmed.appendTo(tr);
+
+      // Final append
+      tr.appendTo(document.getElementById("pdb-table-body"));
     });
-};
-
-getAPI();
+  });
+});
