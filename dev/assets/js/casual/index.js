@@ -12,6 +12,7 @@ $('#submitButton').click(function getAPI() {
   .done(function renderData(data) {
     $('#formPdb').hide();
     $('#tablePdb').show();
+    console.log(data);
 
     $.each(data["data"]["Input_Data_Lembaga_Panahan"], function(key, singledata) {
       // row
