@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 $('#submitButton').click(function getAPI() {
-  var pdbAPI = "http://localhost/pasopatiexdb/web/api";
+  var pdbAPI = "https://pasopatiexdb.herokuapp.com/api";
   var passcode = $('#passcode').val();
 
   $.post(pdbAPI, {
