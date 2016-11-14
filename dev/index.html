@@ -13,41 +13,47 @@
 	<title>Pasopati External Database</title>
 </head>
 <body>
-	<div class="row">
-		<div id="formPdb" class="col-md-12 col-xs-12">
-      <form onSubmit="return false;" class="form-inline">
-        <div class="form-group">
-          <label for="passcode">Passcode</label>
-          <input type="text" class="form-control" id="passcode" placeholder="Enter the secret key">
+  <div class="container">
+  	<div class="row">
+  		<div id="formPdb" class="col-md-12 col-xs-12">
+        <div class="panel panel-default panel-center">
+          <div class="panel-body">
+            <form onSubmit="return false;" class="form-inline form-center">
+              <div class="form-group">
+                <label for="passcode">Passcode</label>
+                <input type="password" class="form-control" id="passcode" placeholder="Enter the secret key">
+              </div>
+              <button type="submit" class="btn btn-default" id="submitButton">Submit</button>
+            </form>
+            <span id="textError"></span>
+          </div>
         </div>
-        <button type="submit" class="btn btn-default" id="submitButton">Submit</button>
-      </form>
-      <span id="textError"></span>
-		</div>
-    <div id="tablePdb" class="col-md-12 col-xs-12 table-width">
-      <div class="table-responsive">
-        <table class="table table-hover table-condensed">
-          <thead>
-            <tr>
-              <th>Nama Lembaga/Individu</th>
-              <th>Alamat</th>
-              <th>Contact Person</th>
-              <th>Nomor Telepon/HP</th>
-              <th>Nomor HP</th>
-              <th>Email</th>
-              <th>Foto Lokasi</th>
-              <th>Informasi lain selengkapnya</th>
-              <th>Kategori</th>
-              <th>Akun social media</th>
-            </tr>
-          </thead>
-          <tbody id="pdb-table-body">
+  		</div>
+      <div id="tablePdb" class="col-md-12 col-xs-12">
+        <div class="table-height">
+          <table class="table table-hover table-condensed table-background">
+            <thead>
+              <tr>
+                <th>Nama Lembaga/Individu</th>
+                <th>Alamat</th>
+                <th>Contact Person</th>
+                <th>Nomor Telepon/HP</th>
+                <th>Nomor HP</th>
+                <th>Email</th>
+                <th>Foto Lokasi</th>
+                <th>Informasi lain selengkapnya</th>
+                <th>Kategori</th>
+                <th>Akun social media</th>
+              </tr>
+            </thead>
+            <tbody id="pdb-table-body">
 
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-	</div>
+  	</div>
+  </div>
 
 	<!-- build:js -->
 	<script type="text/javascript" src="assets/js/0_plugin.js"></script>
